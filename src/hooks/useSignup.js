@@ -14,7 +14,7 @@ const useSignup = () => {
 
     try {
       setError(null);
-      setLoading(false);
+      setLoading(true);
       const res = await fetch("http://localhost:8000/users", {
         method: "POST",
         headers: {
@@ -26,10 +26,10 @@ const useSignup = () => {
       const data = await res.json();
 
       if (res.status === 201) {
-        message.success(data.message);
+        message.success("User registered successfully!");
         login(data.token, data.user);
       } else if (res.status === 400) {
-        setError(data.message);
+        setError(data.detail);
       } else {
         message.error("Registration failed");
       }
