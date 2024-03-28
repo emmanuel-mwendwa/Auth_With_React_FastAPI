@@ -96,16 +96,18 @@ Copy code
 │
 └── backend/             # FastAPI backend
     ├── app/
-    │   ├── api/         # API route definitions
-    │   ├── models/      # SQLAlchemy models
-    │   ├── utils/       # Utility functions
+    │   ├── routers/     # API route definitions
+    │   ├── models.py    # SQLAlchemy models
+    │   ├── config.py    # Application configurations
+    │   ├── database.py  # Database connection functions
+    │   ├── crud.py      # Crud operation functions
     │   └── main.py      # FastAPI application instance
+    │   ├── oauth2.py    # JWT functions
+    │   └── schemas.py   # Pydantic schemas
+    │   └── utils.py     # Utilities functions
     │
     └── .env             # Environment variables
 Contributing
 Contributions are welcome! Feel free to submit issues or pull requests.
-
-License
-This project is licensed under the MIT License.
 
 Feel free to customize the README to match your project structure and specific implementation details. This template provides a basic structure to get you started.
