@@ -3,10 +3,13 @@ import { Card, Flex, Typography, Form, Input, Button, Alert, Spin } from "antd";
 import { Link } from "react-router-dom";
 
 import registerImage from "../assets/register.jpg";
+import useSignup from "../hooks/useSignup";
 
 const Register = () => {
+  const { loading, error, registerUser } = useSignup();
+
   const handleRegister = (values) => {
-    console.log(values);
+    registerUser(values);
   };
 
   return (
@@ -23,7 +26,7 @@ const Register = () => {
           <Form layout="vertical" onFinish={handleRegister} autoComplete="off">
             <Form.Item
               label="First Name"
-              name="first_name"
+              name="firstname"
               rules={[
                 {
                   required: true,
@@ -36,7 +39,7 @@ const Register = () => {
 
             <Form.Item
               label="Last Name"
-              name="last_name"
+              name="lastname"
               rules={[
                 {
                   required: true,
@@ -79,7 +82,7 @@ const Register = () => {
 
             <Form.Item
               label="Confirm Password"
-              name="confirm_password"
+              name="passwordConfirm"
               rules={[
                 {
                   required: true,
@@ -93,7 +96,7 @@ const Register = () => {
               />
             </Form.Item>
 
-            {/* {error && (
+            {error && (
               <Alert
                 description={error}
                 type="error"
@@ -101,17 +104,17 @@ const Register = () => {
                 closable
                 className="alert"
               />
-            )} */}
+            )}
 
             <Form.Item>
               <Button
-                // type={`${loading ? '' : 'primary'}`}
+                type={`${loading ? "" : "primary"}`}
                 htmlType="submit"
                 size="large"
                 className="btn"
               >
-                {/* { loading ? <Spin /> : "Create Account"} */}
-                Create Account
+                {loading ? <Spin /> : "Create Account"}
+                {/* Create Account */}
               </Button>
             </Form.Item>
             <Form.Item>
