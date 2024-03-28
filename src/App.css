@@ -32,3 +32,7 @@ body {
   width: 100%;
   border-radius: 8px;
 }
+
+.alert {
+  margin-bottom: 1.5rem;
+}

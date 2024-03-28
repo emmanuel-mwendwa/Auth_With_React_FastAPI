@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Flex, Typography, Form, Input, Button } from "antd";
+import { Card, Flex, Typography, Form, Input, Button, Alert, Spin } from "antd";
 import { Link } from "react-router-dom";
 
 import registerImage from "../assets/register.jpg";
@@ -93,13 +93,24 @@ const Register = () => {
               />
             </Form.Item>
 
+            {/* {error && (
+              <Alert
+                description={error}
+                type="error"
+                showIcon
+                closable
+                className="alert"
+              />
+            )} */}
+
             <Form.Item>
               <Button
-                type="primary"
+                // type={`${loading ? '' : 'primary'}`}
                 htmlType="submit"
                 size="large"
                 className="btn"
               >
+                {/* { loading ? <Spin /> : "Create Account"} */}
                 Create Account
               </Button>
             </Form.Item>
