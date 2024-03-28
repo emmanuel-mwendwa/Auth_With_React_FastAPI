@@ -13,3 +13,22 @@ body {
   height: 100vh;
   background-color: #CBDDFF;
 }
+
+/* form  */
+.form-container {
+  width: 1000px;
+}
+
+.title,
+.slogan {
+  text-align: center;
+}
+
+.btn {
+  width: 100%;
+}
+
+.auth-image {
+  width: 100%;
+  border-radius: 8px;
+}
