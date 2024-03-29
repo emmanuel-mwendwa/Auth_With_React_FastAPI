@@ -47,7 +47,7 @@ class LeadBase(BaseModel):
 
     first_name: str
     last_name: str
-    email: str
+    email: EmailStr
     company: str
     note: str
 
