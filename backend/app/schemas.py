@@ -11,6 +11,10 @@ class UserBase(BaseModel):
     lastname: str
     email: EmailStr
 
+    class Config:
+
+        from_attributes = True
+
 
 class CreateUser(UserBase):
 
@@ -32,3 +36,28 @@ class Token(BaseModel):
 class TokenData(BaseModel):
 
     id: Optional[str] = None
+
+
+class LeadBase(BaseModel):
+
+    first_name: str
+    last_name: str
+    email: str
+    company: str
+    note: str
+
+
+class LeadCreate(LeadBase):
+
+    pass
+
+class LeadOut(LeadBase):
+
+    id: int
+    owner_id: int
+    created_at: datetime
+    updated_at: datetime
+
+    class Config:
+
+        from_attributes=True
