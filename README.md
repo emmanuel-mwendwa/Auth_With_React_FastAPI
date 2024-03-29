@@ -82,6 +82,7 @@ Usage
 Register a new account by providing your email and password.
 Log in with your registered credentials.
 Explore the application features, such as profile management, etc.
+
 Folder Structure
 bash
 Copy code
@@ -107,7 +108,6 @@ Copy code
     │   └── utils.py     # Utilities functions
     │
     └── .env             # Environment variables
+
 Contributing
 Contributions are welcome! Feel free to submit issues or pull requests.
-
-Feel free to customize the README to match your project structure and specific implementation details. This template provides a basic structure to get you started.
