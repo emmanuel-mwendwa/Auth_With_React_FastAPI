@@ -30,4 +30,4 @@ app.include_router(leads.router)
 
 @app.get("/")
 async def home():
-    return {"message": "Welcome to my application"}
+    return {"message": "Welcome to my react auth application"}
