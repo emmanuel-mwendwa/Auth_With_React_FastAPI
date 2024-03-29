@@ -37,6 +37,11 @@ class TokenData(BaseModel):
 
     id: Optional[str] = None
 
+class SignUpOut(BaseModel):
+
+    user: UserBase
+    token: Token
+
 
 class LeadBase(BaseModel):
 
