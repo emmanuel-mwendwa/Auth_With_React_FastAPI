@@ -29,8 +29,9 @@ const useLogin = () => {
 
       if (res.status === 200) {
         message.success("User logged in successfully!");
-        login(data.access_token, data.user);
-      } else if (res.status === 401) {
+        login(data.access_token);
+        console.log(data.access_token);
+      } else if (res.status === 403) {
         setError(data.detail);
       } else {
         message.error("Login failed");

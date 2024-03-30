@@ -22,7 +22,7 @@ def login(user_credentials: OAuth2PasswordRequestForm = Depends(), db: Session =
 
     if not user:
 
-        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=f"Invalid Credentials")
+        raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=f"User does not exist")
     
     if not utils.verify_password(user_credentials.password, user.password):
 

@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { message } from "antd";
 import { useAuth } from "../contexts/AuthContext.jsx";
+import { useNavigate } from "react-router-dom";
 
 const useSignup = () => {
   const { login } = useAuth();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
+  const navigate = useNavigate();
 
   const registerUser = async (values) => {
     if (values.password !== values.passwordConfirm) {
@@ -27,7 +29,7 @@ const useSignup = () => {
 
       if (res.status === 201) {
         message.success("User registered successfully!");
-        login(data.token, data.user);
+        navigate("/login");
       } else if (res.status === 400) {
         setError(data.detail);
       } else {
