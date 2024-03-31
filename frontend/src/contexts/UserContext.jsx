@@ -7,6 +7,8 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     const fetchUser = async () => {
+      if (!token) return;
+
       const requestOptions = {
         method: "GET",
         headers: {
@@ -15,18 +17,36 @@ export const UserProvider = ({ children }) => {
         },
       };
 
-      const response = await fetch("/users/me", requestOptions);
+      try {
+        const response = await fetch("/users/me", requestOptions);
 
-      if (!response.ok) {
-        setToken(null);
+        if (!response.ok) {
+          return;
+        }
+      } catch (error) {
+        console.error("Error fetching user: ", error);
       }
-      localStorage.setItem("awesomeLeadsToken", token);
     };
+
     fetchUser();
   }, [token]);
 
+  // Update the token in local storage whenever it changes
+  useEffect(() => {
+    if (token) {
+      localStorage.setItem("awesomeLeadsToken", token);
+    } else {
+      localStorage.removeItem("awesomeLeadsToken");
+    }
+  }, [token]);
+
+  // Logout function
+  const logout = () => {
+    setToken(null);
+  };
+
   return (
-    <UserContext.Provider value={[token, setToken]}>
+    <UserContext.Provider value={{ token, setToken, logout }}>
       {children}
     </UserContext.Provider>
   );

@@ -10,12 +10,13 @@ import {
   Typography,
   Form,
 } from "antd";
+import LogoutButton from "../components/LogoutButton";
 
 const Dashboard = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
   const [profile, setProfile] = useState(null);
-  const [token, setToken] = useContext(UserContext);
+  const { token, setToken } = useContext(UserContext);
 
   const getUserProfile = async () => {
     try {
@@ -49,9 +50,9 @@ const Dashboard = () => {
     getUserProfile();
   }, []);
 
-  const handleLogout = () => {
-    setToken(null);
-  };
+  // const handleLogout = () => {
+  //   setToken(null);
+  // };
 
   return (
     <>
@@ -83,14 +84,15 @@ const Dashboard = () => {
                 </Form.Item>
               </>
             ) : (
-              { loading }
+              <>{loading}</>
             )}
           </Flex>
         </Flex>
       </Card>
       <div>Profile</div>
 
-      {token && <Button onClick={handleLogout}>Logout</Button>}
+      {/* {token && <Button onClick={handleLogout}>Logout</Button>} */}
+      {token && <LogoutButton />}
     </>
   );
 };

@@ -6,7 +6,7 @@ import { UserContext } from "../contexts/UserContext";
 const useLogin = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
-  const [, setToken] = useContext(UserContext);
+  const { token, setToken } = useContext(UserContext);
   const navigate = useNavigate();
 
   const loginUser = async (values) => {

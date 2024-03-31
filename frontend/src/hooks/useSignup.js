@@ -7,7 +7,7 @@ const useSignup = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
   const navigate = useNavigate();
-  const [, setToken] = useContext(UserContext);
+  const { token, setToken } = useContext(UserContext);
 
   const registerUser = async (values) => {
     if (values.password !== values.passwordConfirm) {
@@ -37,7 +37,7 @@ const useSignup = () => {
         message.error("Registration failed");
       }
     } catch (error) {
-      message.error("Registration failed");
+      message.error("Internal server error");
     } finally {
       setLoading(false);
     }

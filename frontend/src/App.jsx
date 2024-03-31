@@ -13,14 +13,14 @@ import Dashboard from "./pages/Dashboard";
 import { UserContext } from "./contexts/UserContext";
 
 const App = () => {
-  const [token] = useContext(UserContext);
+  const { token } = useContext(UserContext);
 
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={token ? <Dashboard /> : <Login />} />
       </Routes>
     </Router>
   );
