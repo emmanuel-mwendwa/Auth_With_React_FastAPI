@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { message } from "antd";
-import { useAuth } from "../contexts/AuthContext.jsx";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../contexts/UserContext.jsx";
 
 const useSignup = () => {
-  const { login } = useAuth();
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
   const navigate = useNavigate();
+  const [, setToken] = useContext(UserContext);
 
   const registerUser = async (values) => {
     if (values.password !== values.passwordConfirm) {
@@ -29,7 +29,8 @@ const useSignup = () => {
 
       if (res.status === 201) {
         message.success("User registered successfully!");
-        navigate("/login");
+        setToken(data.token.access_token);
+        navigate("/dashboard");
       } else if (res.status === 400) {
         setError(data.detail);
       } else {

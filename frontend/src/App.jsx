@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./App.css";
 
 import {
@@ -10,28 +10,17 @@ import {
 import Register from "./Auth/Register";
 import Login from "./Auth/Login";
 import Dashboard from "./pages/Dashboard";
-import { useAuth } from "./contexts/AuthContext";
+import { UserContext } from "./contexts/UserContext";
 
 const App = () => {
-  const { isAuthenticated } = useAuth();
+  const [token] = useContext(UserContext);
 
   return (
     <Router>
       <Routes>
-        <Route
-          path="/"
-          element={
-            !isAuthenticated ? <Register /> : <Navigate to="/dashboard" />
-          }
-        />
-        <Route
-          path="/login"
-          element={!isAuthenticated ? <Login /> : <Navigate to="/dashboard" />}
-        />
-        <Route
-          path="/dashboard"
-          element={isAuthenticated ? <Dashboard /> : <Login />}
-        />
+        <Route path="/" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Router>
   );
