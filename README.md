@@ -22,33 +22,28 @@ Python 3.x and pip installed on your machine
 ## Installation
 Clone this repository to your local machine:
 
-bash
 ```
 git clone https://github.com/your-username/your-repository.git
 ```
 Navigate to the frontend directory:
 
-bash
 ```
 cd frontend
 ```
 Install frontend dependencies:
 
-bash
 ```
 npm install
 ```
 
 Navigate to the backend directory:
 
-bash
 ```
 cd ../backend
 ```
 
 Install backend dependencies:
 
-bash
 ```
 pip install -r requirements.txt
 ```
@@ -79,13 +74,11 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 ## Running the Application
 Start the backend server:
 
-bash
 ```
 uvicorn app.main:app --reload
 ```
 Start the frontend development server on another terminal:
 
-bash
 ```
 npm start
 ```
