@@ -18,32 +18,41 @@ Authentication: JWT (JSON Web Tokens)
 ### Prerequisites
 Node.js and npm (or yarn) installed on your machine
 Python 3.x and pip installed on your machine
-Installation
+
+## Installation
 Clone this repository to your local machine:
 
 bash
-Copy code
+```
 git clone https://github.com/your-username/your-repository.git
+```
 Navigate to the frontend directory:
 
 bash
-Copy code
+```
 cd frontend
+```
 Install frontend dependencies:
 
 bash
-Copy code
+```
 npm install
+```
+
 Navigate to the backend directory:
 
 bash
-Copy code
+```
 cd ../backend
+```
+
 Install backend dependencies:
 
 bash
-Copy code
+```
 pip install -r requirements.txt
+```
+
 Configuration
 Configure environment variables:
 
@@ -71,14 +80,16 @@ ACCESS_TOKEN_EXPIRE_MINUTES=30
 Start the backend server:
 
 bash
-Copy code
-uvicorn main:app --reload
-Start the frontend development server:
+```
+uvicorn app.main:app --reload
+```
+Start the frontend development server on another terminal:
 
 bash
-Copy code
+```
 npm start
-Open your browser and navigate to http://localhost:3000 to view the application.
+```
+Open your browser and navigate to **http://localhost:3000** to view the application.
 
 ### Usage
 Register a new account by providing your email and password.
@@ -113,4 +124,5 @@ Copy code
     └── .env             # Environment variables
 ```
 Contributing
-Contributions are welcome! Feel free to submit issues or pull requests.
+
+<p>Contributions are welcome! Feel free to submit issues or pull requests.</p>
